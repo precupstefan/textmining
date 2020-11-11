@@ -1,0 +1,1 @@
+datasetpath = f'./datasets/Reuters_34/Training'
