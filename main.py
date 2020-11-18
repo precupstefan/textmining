@@ -1,6 +1,5 @@
-from util.data_extraction import build_dictionaries
-from util.pd_util import build_dataframe_without_topics
+from util.dataset_util import build_datasets, load_datasets
 
-wordCountForDocuments, topicsForDocuments, globalDictionary = build_dictionaries()
-csv = build_dataframe_without_topics(wordCountForDocuments,globalDictionary)
+build_datasets()
+atr,csv = load_datasets()
 1 == 1

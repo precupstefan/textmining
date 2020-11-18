@@ -20,3 +20,19 @@ def build_dataframe_without_topics(wordCounts, globalDictionary) -> pd.DataFrame
         dataframe.loc[row_index] = row
         row_index += 1
     return dataframe
+
+
+def add_column_to_dataframe(dataset: pd.DataFrame, columns) -> pd.DataFrame:
+    column_dataframe = pd.DataFrame(columns[1:], columns=[columns[0]])
+    return pd.concat([dataset, column_dataframe], axis=1)
+
+
+def add_topics_to_dataset(dataset: pd.DataFrame, topics: {}) -> pd.DataFrame:
+    columns = ["topics"]
+    for key in topics.keys():
+        topics_string = ""
+        for topic in topics[key]:
+            topics_string += topic + ","
+        topics_string = topics_string[:-1]
+        columns.append(topics_string)
+    return add_column_to_dataframe(dataset, columns)
